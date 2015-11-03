@@ -1,10 +1,16 @@
-FROM ubuntu:14.04
+ FROM ubuntu:14.04
 MAINTAINER bowwow "bowwow@bowwow.com"
 
 RUN locale-gen en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
 
-RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-postgis-2.1 libpq-dev sudo
+RUN sudo apt-get install -y software-properties-common
+RUN sudo add-apt-repository "deb https://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
+
+RUN sudo apt-get install -y apt-transport-https wget
+RUN wget --quiet -O - https://postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+RUN sudo apt-get update
+RUN sudo apt-get install -y -q postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-postgis-2.1 libpq-dev
 
 # /etc/ssl/private can't be accessed from within container for some reason
 # (@andrewgodwin says it's something AUFS related)

@@ -13,7 +13,7 @@ PostgreSQL 9.4
     SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
     Type "help" for help.
 
-    test=#
+    ubuntu14.04=#
 
 (Example assumes PostgreSQL client is installed on Docker host.)
 
