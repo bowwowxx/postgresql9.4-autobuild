@@ -5,13 +5,9 @@ postgresql
 
 PostgreSQL 9.4
 
-    $ docker run -d -p 5432:5432 -e POSTGRESQL_USER=bowwow -e POSTGRESQL_PASS=bowwow -e POSTGRESQL_DB=bowwow bowwow/postgresql9.4
-    da809981545f
-    $ psql -h localhost -U test test
-    Password for user test:
-    psql (9.4.2, server 9.4.4)
-    SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
-    Type "help" for help.
+```
+docker run -d -p 5432:5432 -e POSTGRESQL_USER=bowwow -e POSTGRESQL_PASS=bowwow -e POSTGRESQL_DB=bowwowdb bowwow/postgresql9.4-autobuild
+```
 
     ubuntu14.04=#
 
